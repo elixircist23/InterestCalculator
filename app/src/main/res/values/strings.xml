@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Interest Calculator</string>
+    <string-array name="time">
+        <item>Years</item>
+        <item>Months</item>
+    </string-array>
+    <string name="Principal">Principal</string>
+    <string name="Rate">Rater</string>
+    <string name="Time">Time</string>
+
+</resources>
