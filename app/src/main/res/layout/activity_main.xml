@@ -25,7 +25,7 @@
         />
 
     <TextView
-        android:text="Rate"
+        android:text="Rate %"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rateV"
@@ -44,7 +44,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/editPrincipal"
         android:layout_alignParentTop="true"
@@ -54,17 +54,18 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/editRate"
         android:layout_below="@+id/editPrincipal"
         android:layout_toRightOf="@id/rateV"
-        android:layout_alignLeft="@id/editPrincipal"/>
+        android:layout_alignLeft="@id/editPrincipal"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/editTime"
         android:layout_below="@+id/editRate"
@@ -98,4 +99,14 @@
             android:layout_marginRight="16dp"
             app:borderWidth="0dp"
             app:rippleColor="@color/colorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/simpleInterest"
+        android:layout_marginBottom="111dp"
+        android:layout_above="@+id/myFAB"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp" />
 </RelativeLayout>
