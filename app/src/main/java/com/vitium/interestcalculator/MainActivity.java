@@ -10,9 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
     FloatingActionButton fab;
+    Spinner mySpinner;
+    TextView interest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +32,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //grabbing values from edit text
-                double principal = Double.parseDouble(((EditText)findViewById(R.id.editPrincipal)).getText().toString());
-                double rate = Double.parseDouble(((EditText)findViewById(R.id.editRate)).getText().toString());
-                double time = Double.parseDouble(((EditText)findViewById(R.id.editTime)).getText().toString());
+                double principal = 0;
+                double rate = 0;
+                double time = 0;
+                try {
+                    principal = Double.parseDouble(((EditText)findViewById(R.id.editPrincipal)).getText().toString());
+                    rate = Double.parseDouble(((EditText)findViewById(R.id.editRate)).getText().toString());
+                    time = Double.parseDouble(((EditText)findViewById(R.id.editTime)).getText().toString());
+                }
+                catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, "Please fill all info with numbers.", Toast.LENGTH_SHORT).show();
+                }
 
                 //grabbing spinner value to see if years or months
-                Spinner mySpinner = (Spinner) findViewById(R.id.spinner2);
+                mySpinner = (Spinner) findViewById(R.id.spinner2);
                 String text = mySpinner.getSelectedItem().toString();
                 //if months, do the conversion
                 if(text.equals("Months")){
@@ -43,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 double A = principal * (1 + ((rate/100) * time));
                 String format = String.format("%1$,.2f", A);
 
-                TextView tv1 = (TextView)findViewById(R.id.simpleInterest);
-                tv1.setText(format);
+                interest = (TextView)findViewById(R.id.simpleInterest);
+                interest.setText(format);
 
             }
 
