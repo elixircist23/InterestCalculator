@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
@@ -13,14 +11,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.vitium.interestcalculator.MainActivity">
 
+
+
+
     <TextView
         android:text="Principal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="33dp"
         android:id="@+id/principalV"
-        android:layout_alignBaseline="@+id/editPrincipalC"
-        android:layout_alignBottom="@+id/editPrincipalC"
+        android:layout_alignBaseline="@+id/editPrincipal"
+        android:layout_alignBottom="@+id/editPrincipal"
         />
 
     <TextView
@@ -28,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rateV"
-        android:layout_below="@id/editPrincipalC"
+        android:layout_below="@id/editPrincipal"
         android:layout_alignBaseline="@+id/editRate" />
 
     <TextView
@@ -45,7 +46,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/editPrincipalC"
+        android:id="@+id/editPrincipal"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@id/principalV"/>
@@ -56,9 +57,9 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/editRate"
-        android:layout_below="@+id/editPrincipalC"
+        android:layout_below="@+id/editPrincipal"
         android:layout_toRightOf="@id/rateV"
-        android:layout_alignLeft="@id/editPrincipalC"
+        android:layout_alignLeft="@id/editPrincipal"
         android:layout_alignParentEnd="true" />
 
     <EditText
@@ -70,7 +71,7 @@
         android:layout_below="@+id/editRate"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@id/timeV"
-        android:layout_alignLeft="@id/editPrincipalC" />
+        android:layout_alignLeft="@id/editPrincipal" />
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,5 +109,8 @@
         android:layout_centerHorizontal="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="30sp" />
+
+    
+
 
 </RelativeLayout>

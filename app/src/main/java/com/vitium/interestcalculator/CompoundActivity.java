@@ -22,36 +22,40 @@ public class CompoundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compound);
         int color = ContextCompat.getColor(this, R.color.icons);
-        fab = (FloatingActionButton) findViewById(R.id.myFabC);
+        fab = (FloatingActionButton) findViewById(R.id.myFAB);
         fab.getDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
 
-        fab = (FloatingActionButton) findViewById(R.id.myFabC);
+        fab = (FloatingActionButton) findViewById(R.id.myFAB);
         fab.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                //grabbing values from edit text
                 double principal = 0;
                 double rate = 0;
                 double time = 0;
-                double compound = 0;
-                double A;
-
-                //grabbing values from edit text
                 try {
-                    principal = Double.parseDouble(((EditText)findViewById(R.id.editText4)).getText().toString());
-                    rate = Double.parseDouble(((EditText)findViewById(R.id.editText5)).getText().toString());
-                    time = Double.parseDouble(((EditText)findViewById(R.id.editText6)).getText().toString());
-                    compound = Double.parseDouble(((EditText)findViewById(R.id.editText6)).getText().toString());
+                    principal = Double.parseDouble(((EditText)findViewById(R.id.editPrincipal)).getText().toString());
+                    rate = Double.parseDouble(((EditText)findViewById(R.id.editRate)).getText().toString());
+                    time = Double.parseDouble(((EditText)findViewById(R.id.editTime)).getText().toString());
                 }
                 catch (NumberFormatException e) {
                     Toast.makeText(CompoundActivity.this, "Please fill all info with numbers.", Toast.LENGTH_SHORT).show();
                 }
 
+                //grabbing spinner value to see if years or months
+                mySpinner = (Spinner) findViewById(R.id.spinner2);
+                String text = mySpinner.getSelectedItem().toString();
+                //if months, do the conversion
+                if(text.equals("Months")){
+                    time = time / 12;
+                }
+
                 //calculate the interest, round using format string
-                A = java.lang.Math.pow((principal * (1 + ((rate/100) / compound))), compound * time);
+                double A = principal * (1 + ((rate/100) * time));
                 String format = String.format("%1$,.2f", A);
 
-                interest = (TextView)findViewById(R.id.textView7);
+                interest = (TextView)findViewById(R.id.simpleInterest);
                 interest.setText(format);
 
             }
