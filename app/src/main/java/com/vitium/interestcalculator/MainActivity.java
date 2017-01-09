@@ -1,6 +1,5 @@
 package com.vitium.interestcalculator;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -59,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
                 interest = (TextView)findViewById(R.id.simpleInterest);
                 interest.setText(format);
-
-                startActivity(new Intent(MainActivity.this,CompoundActivity.class));
-
 
             }
 
