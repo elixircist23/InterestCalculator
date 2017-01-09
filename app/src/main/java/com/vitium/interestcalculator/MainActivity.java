@@ -34,14 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-        // Set the adapter for the list view
-
-        // Set the list's click listener
-
-
         int color = ContextCompat.getColor(this, R.color.icons);
         fab = (FloatingActionButton) findViewById(R.id.myFAB);
         fab.getDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
@@ -80,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 interest = (TextView)findViewById(R.id.simpleInterest);
                 interest.setText(format);
 
-                startActivity(new Intent(MainActivity.this,CompoundActivity.class));
+                //startActivity(new Intent(MainActivity.this,CompoundActivity.class));
 
 
             }
