@@ -12,80 +12,11 @@
     tools:context="com.vitium.interestcalculator.MainActivity">
 
 
-
-
-    <TextView
-        android:text="Principal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="33dp"
-        android:id="@+id/principalV"
-        android:layout_alignBaseline="@+id/editPrincipal"
-        android:layout_alignBottom="@+id/editPrincipal"
-        />
-
-    <TextView
-        android:text="Rate %"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rateV"
-        android:layout_below="@id/editPrincipal"
-        android:layout_alignBaseline="@+id/editRate" />
-
-    <TextView
-        android:text="Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timeV"
-        android:layout_below="@id/editRate"
-        android:layout_alignBaseline="@+id/editTime" />
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editPrincipal"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/principalV"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editRate"
-        android:layout_below="@+id/editPrincipal"
-        android:layout_toRightOf="@id/rateV"
-        android:layout_alignLeft="@id/editPrincipal"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editTime"
-        android:layout_below="@+id/editRate"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/timeV"
-        android:layout_alignLeft="@id/editPrincipal" />
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner2"
-        android:entries="@array/time"
-        android:layout_below="@+id/editTime"
-        android:layout_alignStart="@+id/editTime" />
-
-
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/myFAB"
+        android:id="@+id/myFabC"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:src="@mipmap/ic_drag_handle_black_24dp"
@@ -100,13 +31,85 @@
         app:borderWidth="0dp"
         app:rippleColor="@color/colorPrimary" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editText5"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/editText5"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editText6"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/editText6"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editText7"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:text="Pricipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/principalC"
+        android:layout_alignBaseline="@+id/editText4"
+        android:layout_alignBottom="@+id/editText4"
+        android:layout_toEndOf="@+id/coordinatorLayout3" />
+
+    <TextView
+        android:text="Rate %"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rateC"
+        android:layout_alignBaseline="@+id/editText5"
+        android:layout_alignBottom="@+id/editText5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Time (Years)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeC"
+        android:layout_alignBaseline="@+id/editText6"
+        android:layout_alignBottom="@+id/editText6"
+        android:layout_toEndOf="@+id/coordinatorLayout3" />
+
+    <TextView
+        android:text="Times to compound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timesC"
+        android:layout_alignBaseline="@+id/editText7"
+        android:layout_alignBottom="@+id/editText7"
+        android:layout_toEndOf="@+id/coordinatorLayout3" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/simpleInterest"
-        android:layout_marginBottom="111dp"
-        android:layout_above="@+id/myFAB"
-        android:layout_centerHorizontal="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="30sp" />
+        android:id="@+id/textView7"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="30sp"
+        android:layout_above="@+id/myFabC"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
