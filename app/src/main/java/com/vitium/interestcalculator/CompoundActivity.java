@@ -48,7 +48,7 @@ public class CompoundActivity extends AppCompatActivity {
                 }
 
                 //calculate the interest, round using format string
-                A = java.lang.Math.pow((principal * (1 + ((rate/100) / compound))), compound * time);
+                A = principal * java.lang.Math.pow((1 + (((rate/100) / time))), compound * time);
                 String format = String.format("%1$,.2f", A);
 
                 interest = (TextView)findViewById(R.id.textView7);
