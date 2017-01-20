@@ -113,7 +113,7 @@ public class SimpleFragment extends Fragment {
                 interest = (TextView)view.findViewById(R.id.simpleInterest);
                 interest.setText(format);
 
-                startActivity(new Intent(getActivity(),CompoundActivity.class));
+
 
 
             }
