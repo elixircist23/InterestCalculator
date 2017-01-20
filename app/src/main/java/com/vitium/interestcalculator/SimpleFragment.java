@@ -35,7 +35,6 @@ public class SimpleFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
 
     public SimpleFragment() {
         // Required empty public constructor
@@ -71,16 +70,17 @@ public class SimpleFragment extends Fragment {
     FloatingActionButton fab;
     Spinner mySpinner;
     TextView interest;
-
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        view = inflater.inflate(R.layout.fragment_simple, container, false);
+
         int color = ContextCompat.getColor(getActivity(), R.color.icons);
-        fab = (FloatingActionButton) getView().findViewById(R.id.myFAB);
+        fab = (FloatingActionButton) view.findViewById(R.id.myFAB);
         fab.getDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
 
-        fab = (FloatingActionButton) getView().findViewById(R.id.myFAB);
         fab.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -90,16 +90,16 @@ public class SimpleFragment extends Fragment {
                 double rate = 0;
                 double time = 0;
                 try {
-                    principal = Double.parseDouble(((EditText)getView().findViewById(R.id.editPrincipal)).getText().toString());
-                    rate = Double.parseDouble(((EditText)getView().findViewById(R.id.editRate)).getText().toString());
-                    time = Double.parseDouble(((EditText)getView().findViewById(R.id.editTime)).getText().toString());
+                    principal = Double.parseDouble(((EditText)view.findViewById(R.id.editPrincipal)).getText().toString());
+                    rate = Double.parseDouble(((EditText)view.findViewById(R.id.editRate)).getText().toString());
+                    time = Double.parseDouble(((EditText)view.findViewById(R.id.editTime)).getText().toString());
                 }
                 catch (NumberFormatException e) {
                     Toast.makeText(getActivity(), "Please fill all info with numbers.", Toast.LENGTH_SHORT).show();
                 }
 
                 //grabbing spinner value to see if years or months
-                mySpinner = (Spinner) getView().findViewById(R.id.spinner2);
+                mySpinner = (Spinner) view.findViewById(R.id.spinner2);
                 String text = mySpinner.getSelectedItem().toString();
                 //if months, do the conversion
                 if(text.equals("Months")){
@@ -110,7 +110,7 @@ public class SimpleFragment extends Fragment {
                 double A = principal * (1 + ((rate/100) * time));
                 String format = String.format("%1$,.2f", A);
 
-                interest = (TextView)getView().findViewById(R.id.simpleInterest);
+                interest = (TextView)view.findViewById(R.id.simpleInterest);
                 interest.setText(format);
 
                 startActivity(new Intent(getActivity(),CompoundActivity.class));
@@ -119,45 +119,8 @@ public class SimpleFragment extends Fragment {
             }
 
         });
-        return inflater.inflate(R.layout.fragment_simple, container, false);
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

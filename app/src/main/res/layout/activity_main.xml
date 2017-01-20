@@ -1,112 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.vitium.interestcalculator.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:text="Principal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="33dp"
-        android:id="@+id/principalV"
-        android:layout_alignBaseline="@+id/editPrincipalC"
-        android:layout_alignBottom="@+id/editPrincipalC"
-        />
-
-    <TextView
-        android:text="Rate %"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rateV"
-        android:layout_below="@id/editPrincipalC"
-        android:layout_alignBaseline="@+id/editRate" />
-
-    <TextView
-        android:text="Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timeV"
-        android:layout_below="@id/editRate"
-        android:layout_alignBaseline="@+id/editTime" />
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editPrincipalC"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/principalV"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editRate"
-        android:layout_below="@+id/editPrincipalC"
-        android:layout_toRightOf="@id/rateV"
-        android:layout_alignLeft="@id/editPrincipalC"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editTime"
-        android:layout_below="@+id/editRate"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/timeV"
-        android:layout_alignLeft="@id/editPrincipalC" />
-    <Spinner
+    <!-- This LinearLayout represents the contents of the screen  -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner2"
-        android:entries="@array/time"
-        android:layout_below="@+id/editTime"
-        android:layout_alignStart="@+id/editTime" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- The ActionBar displayed at the top -->
+        <include
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- The main content view where fragments are loaded -->
+        <FrameLayout
+            android:id="@+id/flContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
 
-    <android.support.design.widget.CoordinatorLayout
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nvView"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/myFAB"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:src="@mipmap/ic_drag_handle_black_24dp"
-            app:elevation="5dp"
-            app:backgroundTint="@color/colorAccent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
-            app:borderWidth="0dp"
-            app:rippleColor="@color/colorPrimary" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/simpleInterest"
-        android:layout_marginBottom="111dp"
-        android:layout_above="@+id/myFAB"
-        android:layout_centerHorizontal="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="30sp" />
-
-</RelativeLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:menu="@menu/drawer_view" />
+</android.support.v4.widget.DrawerLayout>

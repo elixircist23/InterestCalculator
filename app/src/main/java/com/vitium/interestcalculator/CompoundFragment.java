@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 import android.graphics.PorterDuff;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -73,12 +70,14 @@ public class CompoundFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_compound, container, false);
 
         int color = ContextCompat.getColor(getActivity(), R.color.icons);
-        fab = (FloatingActionButton) getView().findViewById(R.id.myFabC);
-        fab.getDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
 
-        fab = (FloatingActionButton) getView().findViewById(R.id.myFabC);
+
+
+        fab = (FloatingActionButton) view.findViewById(R.id.myFabC);
+        fab.getDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         fab.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -110,7 +109,7 @@ public class CompoundFragment extends Fragment {
             }
 
         });
-        return inflater.inflate(R.layout.fragment_compound, container, false);
+        return view;
     }
 
 }
